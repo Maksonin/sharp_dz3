@@ -1,24 +1,27 @@
-﻿int input(string text){
+﻿int Input(string text){
     Console.WriteLine(text);
     return Convert.ToInt32(Console.ReadLine());
 }
 
 (int, int, int) GetDot(){
-    return (input("Введите Х: "),input("Введите Y: "),input("Введите Z: "));
+    return (Input("Введите Х: "),Input("Введите Y: "),Input("Введите Z: "));
 }
 
 void Task19(){
     // Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
     int num;
     while(true){
-        num = input("Введите пятизначное число - ");
+        num = Input("Введите пятизначное число - ");
         if ((num >= 10000)&&(num < 100000)) break;
         else Console.WriteLine("Введенное число не пятизначное");
     }
+
+    int num1 = num / 1000;
+    int num2 = num % 100;
     
-    Console.WriteLine(num/1000 + " " + num%100);
-    int tmp = Math.Abs(num%100 - num/1000);
-    if(tmp == 9 || tmp ==0)
+    num2 = (num2%10 * 10) + (num2/10);
+
+    if(num1==num2)
         Console.WriteLine("Полиндром!");
     else
         Console.WriteLine("Не полиндром!");
@@ -40,7 +43,7 @@ void Task21(){
 
 void Task23(){
     // Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
-    int num = input("Введите число - ");
+    int num = Input("Введите число - ");
 
     for(int i = 1; i <= num; i++){
         Console.WriteLine($"{i}^3 = {Math.Pow(i,3)}");
@@ -50,7 +53,7 @@ void Task23(){
 Console.WriteLine("1 - Задача 19");
 Console.WriteLine("2 - Задача 21");
 Console.WriteLine("3 - Задача 23");
-switch (input("Введите номер задачи - ")){
+switch (Input("Введите номер задачи - ")){
     case 1:
         Task19();
         break;
